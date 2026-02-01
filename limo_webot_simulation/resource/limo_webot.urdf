@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<robot name="limo">
+    <webots>
+        <plugin type="limo_webot_simulation::LimoDiffDriver" />
+
+        <device reference="lidar" type="Lidar">
+          <ros>
+            <topicName>/scan</topicName>
+            <frameName>laser_link</frameName>
+            <updateRate>15</updateRate>
+            <alwaysOn>true</alwaysOn>
+          </ros>
+        </device>
+
+        <device reference="camera" type="Camera">
+          <ros>
+            <topicName>/camera/image</topicName>
+            <frameName>camera_link</frameName>
+            <updateRate>30</updateRate>
+            <alwaysOn>true</alwaysOn>
+          </ros>
+        </device>
+    
+        <!-- Depth (RangeFinder) -->
+        <device reference="depth" type="RangeFinder">
+          <ros>
+            <topicName>/camera/depth</topicName>
+            <frameName>depth_camera_link</frameName>
+            <updateRate>30</updateRate>
+            <alwaysOn>true</alwaysOn>
+          </ros>
+        </device>
+
+        <plugin type="webots_ros2_driver::Ros2IMU">
+          <topicName>/imu</topicName>
+          <frameName>imu_link</frameName>
+          <updateRate>30</updateRate>
+          <alwaysOn>true</alwaysOn>
+          <inertialUnitName>inertial_unit</inertialUnitName>
+          <gyroName>gyro</gyroName>
+          <accelerometerName>accelerometer</accelerometerName>
+        </plugin>
+        
+    </webots>
+</robot>
