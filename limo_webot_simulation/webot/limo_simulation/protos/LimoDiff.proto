@@ -112,7 +112,7 @@ PROTO LimoDiff [
         }
       }
       Solid {
-        translation 0.120000 0.000000 0.060000
+        translation 0.10000 0.000000 0.040000
         children [
           Shape {
             appearance DEF depth_camera_material PBRAppearance {
