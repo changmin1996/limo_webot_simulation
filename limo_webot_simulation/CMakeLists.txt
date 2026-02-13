@@ -11,9 +11,9 @@ find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(pluginlib REQUIRED)
 find_package(webots_ros2_driver REQUIRED)
+find_package(nav_msgs REQUIRED)
 
 pluginlib_export_plugin_description_file(webots_ros2_driver limo_diff_driver.xml)
-
 
 add_library(${PROJECT_NAME} SHARED
   src/limo_diff_driver.cpp
@@ -30,6 +30,7 @@ ament_target_dependencies(${PROJECT_NAME}
   geometry_msgs
   pluginlib
   webots_ros2_driver
+  nav_msgs
 )
 
 install(TARGETS ${PROJECT_NAME}
